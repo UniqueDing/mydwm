@@ -83,11 +83,11 @@ static const char *lockcmd[] = { "slock", NULL };
 static const char *suspendcmd[] = { "systemctl", "suspend", NULL };
 static const char *shutdowncmd[] = { "systemctl", "poweroff", NULL };
 static const char *rebootcmd[] = { "reboot", NULL };
-static const char *volumedown[] = { "amixer", "set", "Master", "3277-", NULL };
-static const char *volumeup[] = { "amixer", "set", "Master", "3277+", NULL };
-static const char *volumetoggle[] = { "amixer", "set", "Master", "toggle", NULL };
-static const char *backlightdown[] = { "xbacklight", "-10", NULL };
-static const char *backlightup[] = { "xbacklight", "+10", NULL };
+static const char *volumedown[] = { "/home/uniqueding/.config/dwm/notifyvolume.sh", "down", NULL };
+static const char *volumeup[] = { "/home/uniqueding/.config/dwm/notifyvolume.sh", "up", NULL };
+static const char *volumetoggle[] = { "/home/uniqueding/.config/dwm/notifyvolume.sh", "toggle", NULL };
+static const char *backlightdown[] = { "/home/uniqueding/.config/dwm/notifybacklight.sh", "down", NULL };
+static const char *backlightup[] = { "/home/uniqueding/.config/dwm/notifybacklight.sh", "up", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
