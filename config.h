@@ -1,3 +1,4 @@
+#include <X11/XF86keysym.h>
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
@@ -82,6 +83,11 @@ static const char *lockcmd[] = { "slock", NULL };
 static const char *suspendcmd[] = { "systemctl", "suspend", NULL };
 static const char *shutdowncmd[] = { "systemctl", "poweroff", NULL };
 static const char *rebootcmd[] = { "reboot", NULL };
+static const char *volumedown[] = { "amixer", "set", "Master", "3277-", NULL };
+static const char *volumeup[] = { "amixer", "set", "Master", "3277+", NULL };
+static const char *volumetoggle[] = { "amixer", "set", "Master", "toggle", NULL };
+static const char *backlightdown[] = { "xbacklight", "-10", NULL };
+static const char *backlightup[] = { "xbacklight", "+10", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -92,6 +98,11 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask|ControlMask, XK_l,      spawn,          {.v = lockcmd } },
 	{ MODKEY|ShiftMask|ControlMask, XK_s,      spawn,          {.v = suspendcmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
+	{ 0,                            XF86XK_AudioLowerVolume, spawn, {.v = volumedown } },
+	{ 0,                            XF86XK_AudioRaiseVolume, spawn, {.v = volumeup } },
+	{ 0,                            XF86XK_AudioMute       , spawn, {.v = volumetoggle } },
+	{ 0,                            XF86XK_MonBrightnessUp,  spawn, {.v = backlightup } },
+	{ 0,                            XF86XK_MonBrightnessDown,spawn, {.v = backlightdown } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
