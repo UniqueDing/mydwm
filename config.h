@@ -3,7 +3,7 @@
 
 /* appearance */
 static const unsigned int borderpx  = 0;        /* border pixel of windows */
-static const unsigned int snap      = 120;       /* snap pixel */
+static const unsigned int snap      = 32;       /* snap pixel */
 static const unsigned int gappih    = 10;       /* horiz inner gap between windows */
 static const unsigned int gappiv    = 10;       /* vert inner gap between windows */
 static const unsigned int gappoh    = 10;       /* horiz outer gap between windows and screen edge */
@@ -17,14 +17,16 @@ static const int showsystray        = 1;     /* 0 means no systray */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const int focusonwheel       = 0;
-static const char *fonts[]          = { "monospace:size=10", "wqy-zenhei:size=12" };
-static const char dmenufont[]       = "monospace:size=10";
+static const char *fonts[]          = { "DejaVu Sans Mono:size=12", "wqy-zenhei:size=20" };
+static const char dmenufont[]       = "DejaVu Sans Mono:size=12";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
-static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#005577";
-static const unsigned int baralpha = 0xd0;
+/* static const char col_gray4[]       = "#eeeeee"; */
+static const char col_gray4[]       = "#ffffff";
+/* static const char col_cyan[]        = "#005577"; */
+static const char col_cyan[]        = "#37474F";
+static const unsigned int baralpha = 0xa0;
 static const unsigned int borderalpha = OPAQUE;
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
@@ -81,6 +83,7 @@ static const char *termcmd[]  = { "st", NULL };
 static const char *chromecmd[] = { "google-chrome-stable", NULL };
 static const char *lockcmd[] = { "slock", NULL };
 static const char *suspendcmd[] = { "systemctl", "suspend", NULL };
+static const char *hibernatecmd[] = { "systemctl", "hibernate", NULL };
 static const char *shutdowncmd[] = { "systemctl", "poweroff", NULL };
 static const char *rebootcmd[] = { "reboot", NULL };
 static const char *volumedown[] = { "/home/uniqueding/.config/dwm/notifyvolume.sh", "down", NULL };
@@ -97,6 +100,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask|ControlMask, XK_r,      spawn,          {.v = rebootcmd } },
 	{ MODKEY|ShiftMask|ControlMask, XK_l,      spawn,          {.v = lockcmd } },
 	{ MODKEY|ShiftMask|ControlMask, XK_s,      spawn,          {.v = suspendcmd } },
+	{ MODKEY|ShiftMask|ControlMask, XK_h,      spawn,          {.v = hibernatecmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ 0,                            XF86XK_AudioLowerVolume, spawn, {.v = volumedown } },
 	{ 0,                            XF86XK_AudioRaiseVolume, spawn, {.v = volumeup } },

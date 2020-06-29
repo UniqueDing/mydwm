@@ -363,6 +363,8 @@ combotag(const Arg *arg) {
 		}
 		focus(NULL);
 		arrange(selmon);
+		if(viewontag)
+			view(arg);
 	}
 }
 
