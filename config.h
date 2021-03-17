@@ -80,7 +80,7 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
-static const char *chromecmd[] = { "chromium", NULL };
+static const char *chromecmd[] = { "google-chrome-stable", NULL };
 static const char *lockcmd[] = { "slock", NULL };
 static const char *suspendcmd[] = { "systemctl", "suspend", NULL };
 static const char *hibernatecmd[] = { "systemctl", "hibernate", NULL };
@@ -93,11 +93,12 @@ static const char *backlightdown[] = { "/home/uniqueding/.config/dwm/notifybackl
 static const char *backlightup[] = { "/home/uniqueding/.config/dwm/notifybacklight.sh", "up", NULL };
 static const char *scrotfull[] = { "/home/uniqueding/.config/dwm/scrot.sh", "full", NULL };
 static const char *scrotselect[] = { "/home/uniqueding/.config/dwm/scrot.sh", "select", NULL };
+static const char *darklight[] = { "/home/uniqueding/.config/dwm/dark-light.sh", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
-	{ MODKEY,                       XK_c,      spawn,          {.v = chromecmd } },
+	{ MODKEY,                       XK_w,      spawn,          {.v = chromecmd } },
 	{ MODKEY,                       XK_s,      spawn,          {.v = scrotselect } },
 	{ MODKEY|ShiftMask,             XK_s,      spawn,          {.v = scrotfull } },
 	{ MODKEY|ShiftMask|ControlMask, XK_p,      spawn,          {.v = shutdowncmd } },
@@ -106,6 +107,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask|ControlMask, XK_s,      spawn,          {.v = suspendcmd } },
 	{ MODKEY|ShiftMask|ControlMask, XK_h,      spawn,          {.v = hibernatecmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY|ShiftMask,             XK_d,      spawn,          {.v = darklight } },
 	{ 0,                            XF86XK_AudioLowerVolume, spawn, {.v = volumedown } },
 	{ 0,                            XF86XK_AudioRaiseVolume, spawn, {.v = volumeup } },
 	{ 0,                            XF86XK_AudioMute       , spawn, {.v = volumetoggle } },
@@ -114,10 +116,10 @@ static Key keys[] = {
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
-	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
+	{ MODKEY,                       XK_l,      incnmaster,     {.i = +1 } },
 	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
-	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
+	{ MODKEY,                       XK_i,      setmfact,       {.f = +0.05} },
 	{ MODKEY,                       XK_g,      togglegaps,     {0} },
 //	{ MODKEY|Mod4Mask,              XK_h,      incrgaps,       {.i = +1 } },
 //	{ MODKEY|Mod4Mask,              XK_l,      incrgaps,       {.i = -1 } },
